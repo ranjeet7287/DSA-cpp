@@ -33,5 +33,4 @@ int main()
     cin>>x;
     cout<<BinarySearch(arr,n,x);
     delete[]arr;
-    
 }
