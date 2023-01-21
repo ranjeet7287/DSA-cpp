@@ -31,5 +31,7 @@ int main()
     }
     int x;
     cin>>x;
-    BinarySearch(arr,n,x);
+    cout<<BinarySearch(arr,n,x);
+    delete[]arr;
+    
 }
