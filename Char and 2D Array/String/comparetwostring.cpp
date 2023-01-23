@@ -10,6 +10,7 @@ int main()
 {
     char input1[100] , input2[100];
     cin>>input1>>input2;
+    // WHY ? ZERO(0) beacouse it compare with AScii value internally
     if(strcmp(input1,input2)==0)
     {
         cout<<"True"<<endl;
