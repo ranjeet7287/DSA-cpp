@@ -13,3 +13,6 @@ int main()
     strcpy(arr1,arr2);
     cout<<arr1; //singh
 }
+// One More variation which is 
+// strncpy(destination_strig,source_string,n);
+// n-->length of source_string 
