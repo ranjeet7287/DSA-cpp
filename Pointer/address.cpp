@@ -1,3 +1,4 @@
+//Pointer are variables which store address of other variable .
 #include<iostream>
 using namespace std;
 int main()
