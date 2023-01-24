@@ -26,3 +26,4 @@ int main()
 
     cout<<sum(arr+3,7)<<endl; // part of an array we can also pass  
 }
+
