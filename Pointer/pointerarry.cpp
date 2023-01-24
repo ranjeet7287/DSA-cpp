@@ -14,5 +14,6 @@ int main()
     // a[i] == *(a+i) 
     // i[a] == *(i+a)
     // a[i] == i[a] 
+    // Ararry cannot reasign to pointer
 
 }
