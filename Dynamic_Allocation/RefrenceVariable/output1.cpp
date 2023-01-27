@@ -11,3 +11,4 @@ int main(){
     func(p++);
     cout << i;
 }
+// 10 11
