@@ -6,11 +6,11 @@ void print(int n){
         return;
     }
     if(n == 0){
-        cout << n << “ “;
+        cout << n <<" ";
         return;
     }
     print(n --);
-    cout << n << “ “;
+    cout << n << " ";
 }
 
 int main() {
