@@ -13,3 +13,6 @@ int main()
     int c=max(a,b);
     cout<<c<<endl;
 }
+
+// Inline functions are useful when Function is small and we want to avoid function call overhead
+// Inline functions are used to reduce the function call overhead. Inline function is a function that is expanded in line when it is called.
