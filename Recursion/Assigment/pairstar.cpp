@@ -19,6 +19,8 @@
 
 // Change in the given string itself. So no need to return or print the changed string.
 #include<cstring>
+#include<iostream>
+using namespace std;
 void help (char input[],int start)
 {
     if(input[start]=='\0')
