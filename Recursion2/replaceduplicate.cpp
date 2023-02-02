@@ -35,6 +35,7 @@ void removeConsecutiveDuplicates(char *input)
             input[i-1]=input[i];
         }
         input[i-1]=input[i];
+        removeConsecutiveDuplicates(input);
 
     }
 
