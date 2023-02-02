@@ -1,11 +1,23 @@
 #include<iostream>
 using namespace std;
 
-void Removex(char *arr,char x)
+void Removex(char *arr)
 {
-    if(arr[0]!=x)
+    if(arr[0]=='\0')
     {
-        
+        return ;
+    }
+    if(arr[0]!='x')
+    {
+        Removex(arr+1);
+    }else{
+        int i=1;
+        for(;arr[i]!='\0';i++)
+        {
+            arr[i-1]=arr[i];
+        }
+        arr[i-1]=arr[i];
+        Removex(arr);
     }
 }
 
@@ -15,6 +27,6 @@ int main()
     cin>>arr;
 
     Removex(arr);
-    cout<<ans<<endl;
+    cout<<arr<<endl;
     return 0;
 }
