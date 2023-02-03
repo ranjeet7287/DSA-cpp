@@ -1,51 +1,69 @@
 #include<iostream>
 using namespace std;
 
-int partion(int *input,int start,int end)
+int partion(int *arr,int start,int end)
 {
-    int c=input[end];
-    int i=start-1;
-    for(int j=start;j<end-1;j++)
+    int x=arr[start];
+    int count=0;
+    for(int i=start+1;i<=end;i++)
     {
-        if(input[j]<c){
-            i++;
-            swap(&input[i],&input[j])
+        if(arr[i]<=x)
+        {
+            count++;;
         }
     }
-    
-    
+    int x_index=count+start;
+    arr[start]=arr[x_index];
+    arr[x_index]=x;
+
+    int i=start;
+    int j=end;
+    while(i<x_index && j>x_index)
+    {
+        if(arr[i]<=x){
+            i++;
+        }else if(arr[j]>x)
+        {
+            j--;
+        }else{
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+    return x_index; 
 
 }
-
-void quickSort_help(int *input,int start,int end)
+void quicksort(int *arr,int start,int end)
 {
-    if(start>=end){
+    if(start>=end)
+    {
         return;
     }
-    if(start<end)
-    {
-        int c=partion(input,start,end);
-        quickSort_help(input,start,c-1);
-        quickSort_help(input,c+1,end);
-    }
+    int p=partion(arr,start,end);
+    quicksort(arr,start,p-1);
+    quicksort(arr,p+1,end);
 }
 
-void quickSort(int input[], int size) 
-{
-    quickSort_help(input,0,size-1);
-}
-
-int main()
-{
+int main(){
     int n;
     cin >> n;
+  
     int *input = new int[n];
+    
     for(int i = 0; i < n; i++) {
         cin >> input[i];
     }
-    quickSort(input, n);
+    
+    quicksort(input,0,n-1);
     for(int i = 0; i < n; i++) {
         cout << input[i] << " ";
     }
+    
     delete [] input;
+
 }
+
+
