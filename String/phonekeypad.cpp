@@ -65,4 +65,57 @@
 //     return 0;
 // }
 
+// Print Keypad Combinations Code
+// Send Feedback
+// Given an integer n, using phone keypad find out and print all the possible strings that can be made using digits of input n.
+// Note : The order of strings are not important. Just print different strings in new lines.
+// Input Format :
+// Integer n
+// Output Format :
+// All possible strings in different lines
+// Constraints :
+// 1 <= n <= 10^6
+// Sample Input:
+// 23
+// Sample Output:
+// ad
+// ae
+// af
+// bd
+// be
+// bf
+// cd
+// ce
+// cf
 
+#include <iostream>
+#include <string>
+using namespace std;
+void print(int num,string output){
+    if(num==0)
+    {
+        cout<<output<<endl;
+        return ;
+    }
+    string s[]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    string input=s[num%10];
+    int i=0;
+    while(i<input.size())
+    {
+        print(num/10,input[i]+output);
+        i++;
+    }
+}
+void printKeypad(int num)
+{
+    string output ="";
+    print(num,output);   
+}
+int main(){
+    int num;
+    cin >> num;
+
+    printKeypad(num);
+
+    return 0;
+}
