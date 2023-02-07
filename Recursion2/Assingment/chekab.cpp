@@ -30,10 +30,22 @@
 #include<cstring>
 using namespace std;
 
-void checkAB(char *input)
+bool checkAB(char *input)
 {
     int len=strlen(input);
-    if( )
+    if(len==0){
+        return true;
+    }
+    if(input[0]=='a' && input[1]=='a'){
+        return checkAB(input+1);
+    }
+    else if(input[0]=='a' && input[1]='\0'){
+        return true;
+    }
+    else if(input[0]=='a'&& input[1]=='b' && input[2]=='b'){
+        checkAB(input+3);
+    }
+    return false;
 }
 
 int main() {
