@@ -83,9 +83,19 @@ Node *swapNodes(Node *head, int i, int j)
             p2=prev;
         }
         count++;
+        prev=temp;
+        temp=temp->next;
     }
-
-
+    if(p1!=NULL)
+    {
+        p1->next=c2;
+    }else{
+        head=c1;
+    }
+    Node *a=c1->next;
+    c1->next=c2->next;
+    c2->next=a;
+    return head;
 }
 
 
