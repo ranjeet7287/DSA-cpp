@@ -34,15 +34,11 @@ class Stack
     }
 
     void push(T element){
-        Node<T> *newnode=new Node<T>(element);
-        if(head==NULL){
-            head=newnode;
-            size++;
-        }else{
-            newnode->next=head;
-            head=newnode;
-            size++;
-        }
+        Node<T> *newnode=new Node<T>(element);     
+        // Don't need for head Null condition
+        newnode->next=head;
+        head=newnode;
+        size++;
     }
 
     void pop(){
