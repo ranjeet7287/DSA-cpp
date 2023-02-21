@@ -27,7 +27,7 @@ TreeNode<int> *takeinput()
             cout<<" Enter "<<i<<"th child of "<<front->data<<endl;
             cin>>childata;
             TreeNode<int> *child=new TreeNode<int>(childata);
-            front->children.push_back(child);
+            front->children.push_back(child); // connecting to node as children
             pendingNodes.push(child);
         }
     }
@@ -48,7 +48,8 @@ void printTree(TreeNode<int> *root)
             if(i<front->children.size()-1){
                 cout<<",";
             }
-            pending.push(front->children[i]);
+            pending.push(front->children[i]); 
+            // pusing to the pending queue so that we are able to get children
         }
         cout<<endl;
     }
