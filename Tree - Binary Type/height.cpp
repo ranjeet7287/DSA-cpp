@@ -1,0 +1,112 @@
+#include<iostream>
+#include<queue>
+#include<vector>
+using namespace std;
+
+template<typename T>
+class BinaryTree
+{
+    public:
+    T data;
+    BinaryTree *left;
+    BinaryTree *right;
+
+    BinaryTree(T data){
+        this->data=data;
+        left=NULL;
+        right=NULL;
+    }
+    ~BinaryTree(){
+        delete left;
+        delete right;
+    }
+};
+
+int height(BinaryTree<int> *root)
+{
+    if(root==NULL){
+        return 0;
+    }
+    int ans1=height(root->left);
+    int ans2=height(root->right);
+    if(ans1>ans2){
+        return ans1+1;
+    }else{
+        return ans2+1;
+    }
+}
+
+BinaryTree<int> *takeinput()
+{
+    int rootData;
+    cout<<"Enter the root data : "<<endl;
+    cin>>rootData;
+    if(rootData==-1){
+        return NULL;
+    }
+
+    BinaryTree<int> *root=new BinaryTree<int>(rootData);
+
+    queue<BinaryTree<int>*> pending;
+    pending.push(root);
+
+    while(pending.size()!=0){
+        BinaryTree<int> *front=pending.front();
+        pending.pop();
+
+        int leftchild;
+        cout<<"Enter the left children of "<<front->data<<": ";
+        cin>>leftchild;
+        if(leftchild!=-1){
+            BinaryTree<int> *child=new BinaryTree<int>(leftchild);
+            front->left=child;
+            pending.push(child);
+        }
+
+        int rightchild;
+        cout<<"Enter the right children of "<<front->data<<" : ";
+        cin>>rightchild;
+        if(rightchild!=-1){
+            BinaryTree<int> *child=new BinaryTree<int>(rightchild);
+            front->right=child;
+            pending.push(child);
+        }
+    }
+    return root;
+}
+
+void printTree(BinaryTree<int> *root)
+{
+    if(root==NULL){
+        return;
+    }
+    queue<BinaryTree<int>*> pending;
+    pending.push(root);
+    while(pending.size()!=0)
+    {
+        BinaryTree<int> *front=pending.front();
+        pending.pop();
+
+        cout<<front->data<<":";
+        if(front->left!=NULL){
+            cout<<"Left : "<<front->left->data<<",";
+            pending.push(front->left);
+        }else{
+            cout<<"left -1";
+        }
+        if(front->right!=NULL){
+            cout<<"right :"<<front->right->data;
+            pending.push(front->right);
+        }else{
+            cout<<"Right -1";
+        }
+        cout<<endl;
+    }
+}
+int main()
+{
+    BinaryTree<int> *root=takeinput();
+    printTree(root);
+    cout<<"Number of Nodes : "<<numNode(root);
+    delete root;
+}
