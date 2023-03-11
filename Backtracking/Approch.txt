@@ -1,0 +1,8 @@
+Backtracking is an approch to explore all the path and we use this approch by
+using Recursive alogrithm .
+1.Palce yourself at start point.
+2.Explore all the path possible from the starting point.
+3.Insert your element at only correct possible postion and once inserted.
+  Move onto smaller problem
+4.Once you reach base case , print your solution
+5.Once you explore all the path from one point , Backtrack to your previous point.
