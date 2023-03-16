@@ -1,0 +1,24 @@
+This Approch for the fibbonacci Number without using Dynamic Programing we are using 
+Recursion here/
+if n=6
+                         6
+                  /           \ 
+                  5             4  
+               /    \          /    \
+              4      3        2      1
+            /  \    /  \    /  \   /   \
+           3   2   2   1
+           .
+           .
+           .
+           .
+           till 1 or 0 so as you see we are doing same work repedatily so through dyanamic
+           Programing we can reduce part of doing same work again again.
+Step 1 -> To Determine the repitation.
+Step 2 -> Who many call are thier or Who many unique answer are thier which are required
+          to saved.
+Step 3 -> We will make an array of size n+1.
+Step 4 -> Check answer is already exists or not. 
+              --> YES -> Pick answer and return.
+              --> NO  -> Calculate -> Save -> return 
+              
