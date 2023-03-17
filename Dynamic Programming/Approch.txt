@@ -14,6 +14,7 @@ if n=6
            .
            till 1 or 0 so as you see we are doing same work repedatily so through dyanamic
            Programing we can reduce part of doing same work again again.
+    <- Meomoization ->
 Step 1 -> To Determine the repitation.
 Step 2 -> Who many call are thier or Who many unique answer are thier which are required
           to saved.
@@ -22,3 +23,6 @@ Step 4 -> Check answer is already exists or not.
               --> YES -> Pick answer and return.
               --> NO  -> Calculate -> Save -> return 
               
+              <-DP>
+just add one more step find dependecies and store in array.
+

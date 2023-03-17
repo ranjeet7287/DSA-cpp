@@ -60,19 +60,19 @@ int mincostpath(int **arr,int m,int n){
     output[m-1][n-1]=arr[m-1][n-1];
 
     // fill  last row right to left manner
-    for(int j=n-2,j>=0;j--){
+    for(int j=n-2;j>=0;j--){
         output[m-1][j]=output[m-1][j+1]+arr[m-1][j]; 
     }
 
     // fill Last col bottom to top
     for(int i=m-2;i>=0;i--){
-        output[i][n-1]=output[i+1][n-1]+input[i][n-1];
+        output[i][n-1]=output[i+1][n-1]+arr[i][n-1];
     }
 
     // fill remaining cell
     for(int i=m-2;i>=0;i--){
         for(int j=n-2;j>=0;j--){
-            output[i][j]=min(output[i][j+1],min(output[i+1][j+1],output[i+1][j]));
+            output[i][j]=min(output[i][j+1],min(output[i+1][j+1],output[i+1][j]))+arr[i][j];
         }
     }
     return output[0][0];   
