@@ -33,8 +33,9 @@ int longestIncreasingSubsequence(int* arr, int n)
     dp[i] = 1;
     for (int j = i - 1; j >= 0; j--) {
       if (arr[j] < arr[i]) {
-        if (dp[j] + 1 > dp[i]) {
-          dp[i] = dp[j] + 1;
+        int possibleans=dp[j]+1;
+        if (possibleans > dp[i]) {
+          dp[i] = possibleans;
         }
       }
     }
@@ -57,6 +58,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
-
     cout << longestIncreasingSubsequence(arr, n);
+    delete[]arr;
 }

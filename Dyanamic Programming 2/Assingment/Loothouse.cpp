@@ -31,6 +31,24 @@ the other possible combinations would result in less than 90.
 #include<bits/stdc++.h>
 using namespace std;
 
+// Dp
+int maxMoneyLoot_Dp(int *arr,int n)
+{
+    int *output=new int[n];
+    // fill the first dependency
+    output[0]=arr[0];
+    if(n>=1){
+        output[1]=max(arr[1],output[0]);
+    }
+    for(int i=2;i<n;i++){
+        output[i]=max(output[i-2]+arr[i],output[i-1]);
+    }
+    int result=output[n-1];
+    delete[]output;
+    return result;
+}
+
+
 int maxMoneyLootH(int *arr,int i,int n,int *output)
 {
     if(i>n){
@@ -44,7 +62,7 @@ int maxMoneyLootH(int *arr,int i,int n,int *output)
     output[i]=max(a,b);
     return output[i];
 }
-int maxMoneyLoot(int *arr,int n)
+int maxMoneyLoot_mem(int *arr,int n)
 {
     int *output=new int[n];
     for(int i=0;i<n;i++){
@@ -60,6 +78,6 @@ int main()
 	for (int i = 0; i < n; i++){
 		cin>>arr[i];
 	}
-	cout<<maxMoneyLoot(arr,n);
+	cout<<maxMoneyLoot_mem(arr,n);
 	delete[] arr;
 }
