@@ -1,42 +1,45 @@
 // DFS --> Depth first search
 #include<bits/stdc++.h>
 using namespace std;
-void print(int **arr,int vertices,int s_vert,bool *visited){
-    cout<<s_vert<<endl;
-    visited[s_vert]=true;
-    for(int i=0;i<vertices;i++){
-        if(i==s_vert){
+void print(int **edges,int n,int start_vert,bool *visted)
+{
+    cout<<start_vert<<endl;
+    visted[start_vert]=true;
+    // Now we will see adjacent of start_vertices
+    for(int i=0;i<n;i++){
+        if(i==start_vert){
             continue;
         }
-        if(arr[s_vert][i]==1){
-            if(visited[i]){
-                continue; 
+        if(edges[start_vert][i]==1){
+            if(visted[i]){
+                continue;
             }
-            print(arr,vertices,i,visited);
+            print(edges,n,i,visted);
         }
     }
 }
 int main()
 {
-    int vertices,edges;
-    cin>>vertices>>edges;
-    int **arr=new int*[vertices];
-    for(int i=0;i<vertices;i++){
-        arr[i]=new int[vertices];
-        for(int j=0;j<vertices;j++){
-            arr[i][j]=0;
+    // n->no of vertices e->no of edges
+    int n,e;
+    cin>>n>>e;
+    int **edges=new int*[n];
+    for(int i=0;i<n;i++){
+        edges[i]=new int[n];
+        for(int j=0;j<n;j++){
+            // 0 -> No edges
+            edges[i][j]=0;
         }
     }
-    for(int i=0;i<edges;i++){
-        int first_vert;
-        int sec_vert;
-        cin>>first_vert>>sec_vert;
-        arr[first_vert][sec_vert]=1;
-        arr[sec_vert][first_vert]=1;
+    for(int i=0;i<e;i++){
+        int f_ver,s_ver;
+        cin>>f_ver>>s_ver;
+        edges[f_ver][s_ver]=1;
+        edges[s_ver][f_ver]=1;
     }
-    bool *visted=new bool[vertices];
-    for(int i=0;i<vertices;i++){
-        visted[i]=false;
+    bool *vistied=new bool[n];
+    for(int i=0;i<n;i++){
+        vistied[i]=false;
     }
-    print(arr,vertices,0,visted);
+    print(edges,n,0,vistied);
 }
