@@ -3,6 +3,8 @@ Pattrrens Of DSA
 Prefix Sum
 Two Pointer
 Sliding Window
+Binary Search Patterns
+Substring Problem Patterns 
 Fast & Slow Pointer
 Linked List In-Place Reversal 
 Monotonic Stack
