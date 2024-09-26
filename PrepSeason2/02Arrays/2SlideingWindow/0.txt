@@ -1,0 +1,4 @@
+Array String
+SubArray ,  SubString
+Largest,Maximum,Minimum
+K -> Window Size
