@@ -1,5 +1,5 @@
 // Minimum number of insertion in a string to make it a palindrome
-
+// no.of insertion == no.of deletion
 #include<bits/stdc++.h>
 using namespace std;
 

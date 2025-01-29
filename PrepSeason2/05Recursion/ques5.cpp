@@ -20,7 +20,7 @@ stack<int> Delete(stack<int> &stack){
         return stack;
     }
     int k = (n/2)+1;
-    Solve(stack,n);
+    Solve(stack,k);
     return stack;
 }
 

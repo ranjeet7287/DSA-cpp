@@ -39,7 +39,7 @@ int kanapsack(int *wt,int *val,int W,int n){
 
 int static t[10000][10000];
 int knapsack(int* wt, int* val, int n, int w) {
-	    // Intializing
+        // Intializing
     for(int i=0;i<n+1;i++){
         for(int j=0;j<w+1;j++){
             if(i==0 || j==0){

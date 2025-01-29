@@ -45,7 +45,7 @@ int CountDifference(int *arr,int n , int diff){
         sum+=arr[i];
     }
 
-    int s1 = diff + sum / 2;
+    int s1 = (diff + sum ) /2;
 
     CountNoSumOfSubset(arr,n,s1);
  }

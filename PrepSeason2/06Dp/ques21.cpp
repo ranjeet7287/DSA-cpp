@@ -1,3 +1,24 @@
+
+// Format
+int Slove(int arr[],int i,int j){
+    // base condtion --> thin of smallest IN-VAILD input
+    if(i>=j){
+        return 0;
+    }
+
+    for(int k=i;k<j;k++){
+        // caculate temp ans
+        int temp = Slove(arr,i,k) + Solve(arr,k+1,j);
+
+        // ans=
+
+    }
+}
+
+
+
+
+
 // MCM  -> Matrix Chain Multiplication 
 
 #include<bits/stdc++.h>
@@ -79,3 +100,24 @@ class Solution{
     }
 }
 */
+
+int static t[1001][1001];
+memset(t,-1,sizeof(t));
+
+int Solve(int &arr[],int i,int j){
+
+    if(i>=j){
+        return 0;
+    }
+
+    if(t[i][j]!=-1){
+        return t[i][j];
+    }
+    int ans = INT_MAX;
+    for(int k=i;k<=j-1;j++){
+        const temp = Solve(arr,i,k) + Solve(arr,k+1,j) + arr[i-1]*arr[k]*arr[j];
+        ans = min(ans,temp);
+    }
+    return t[i][j]=ans;
+}
+

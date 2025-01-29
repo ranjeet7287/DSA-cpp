@@ -1,8 +1,29 @@
+// Evaluate Expression To True-Boolean Parenthesization Recursion
+// Given a boolean expression with following symbols.
+// Symbols
+//     'T' --- true 
+//     'F' --- false 
+// And following operators filled between symbols
+// Operators
+//     &   ---boolean AND
+//     |   --- boolean OR
+//     ^   --- boolean XOR 
+// Count the number of ways we can parenthesize the expression so that the value of expression evaluates to true.
+// Example:
+// Input: symbol[]    = {T, F, T}
+//        operator[]  = {^, &}
+// Output: 2
+// The given expression is "T ^ F & T", it evaluates true
+// in two ways "((T ^ F) & T)" and "(T ^ (F & T))"
+
 // Evaluate Expression To True Boolean Parenthesization
 #include<bits/stdc++.h>
 using namespace std;
 
+unordered_map<string,int> mp;
+
 int Solve(string s,int i,int j,bool isTrue){
+    mp.clear();
 
     if(i>j){
         return true;
@@ -12,6 +33,17 @@ int Solve(string s,int i,int j,bool isTrue){
         }else{
             return s[j]=='F';
         }
+    }
+
+
+    string temp = to_string(i);
+    temp.push_back(' ');
+    temp.append(to_string(j));
+    temp.push_back(' ');
+    temp.append(to_string(isTrue));
+
+    if(mp.find(temp)!=mp.end()){
+        return mp(temp);
     }
 
     int ans = 0;
@@ -43,7 +75,7 @@ int Solve(string s,int i,int j,bool isTrue){
         }
     }
 
-    return ans;
+    return  mp[temp]=ans;
 
 
 

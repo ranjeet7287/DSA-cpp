@@ -29,10 +29,10 @@ string PrintLCS(string X,string Y,int n,int m){
             i--;
             j--;
         }else{
-            if(t[i][j-1] > t[i][j-1]){
-                j--;
-            }else{
+            if(t[i-1][j] > t[i][j-1]){
                 i--;
+            }else{
+                j--;
             }
         }
     }

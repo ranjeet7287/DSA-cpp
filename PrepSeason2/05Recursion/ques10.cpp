@@ -7,6 +7,7 @@ void PrintUniqueSubset(string output,string input){
 
     // Solve   
     if(input.empty()){
+        map.insert(output);
         return;
     }
 
