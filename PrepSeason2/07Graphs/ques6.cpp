@@ -7,7 +7,7 @@ void DFS(vector<vector<int>> &adj,int u,vector<bool> visited,stack<int> &st){
 
     // phele mere u ke baccho ko daalo
     for(int &v : adj[u]){
-        if(!visited[u]){
+        if(!visited[v]){
             DFS(adj,v,visited,st);
         }
     }
@@ -19,6 +19,13 @@ void DFS(vector<vector<int>> &adj,int u,vector<bool> visited,stack<int> &st){
 vector<int> topSort(int V,vector<vector<int>> adj){
     vector<bool> visited(V,false);
     stack<int> st;
+
+    unordered_map<int,vector<int>> adj;
+    for(vector<int> &vec : prerequisites){
+        int u = vec[0];
+        int v = vec[1];
+        adj[u].push_back(v);
+    }
 
     for(int i=0;i<V;i++){
         if(!visited[i]){
