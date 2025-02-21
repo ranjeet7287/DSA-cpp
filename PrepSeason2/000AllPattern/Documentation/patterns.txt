@@ -14,7 +14,7 @@ Overlapping Intervals
 Modified Binary Search 
 Depth-First Search(DFS) 👍
 Breadth-First Search(BFS) 👍
-Matrix Traversal
+Matrix Traversal 👍
 Backtracking 👍
 Dynamic Programming 👍
-Topological Sort
+Topological Sort 👍
