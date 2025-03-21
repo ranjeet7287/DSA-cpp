@@ -1,28 +1,41 @@
+// Delete middle element from stack
+
 #include<bits/stdc++.h>
 using namespace std;
 
-void Solve(stack<int> &stack,int k){
+void Delete(stack<int> &st,int k){
     if(k==1){
-        stack.pop();
+        st.pop();
         return;
     }
-    int temp = stack.top();
-    stack.pop();
-    Solve(stack,k-1);  
-    stack.push(temp);
+    int val = st.top();
+    st.pop();
+    Delete(st,k-1);
+    st.push(val);
     return;
 }
 
-stack<int> Delete(stack<int> &stack){
 
-    int n = stack.size();
-    if(stack.empty()){
-        return stack;
+int main(){
+    int n;
+    cin >> n;
+    stack<int> st;
+    for(int i=0;i<n;i++){
+        int val;
+        cin>>val;
+        st.push(val);
     }
-    int k = (n/2)+1;
-    Solve(stack,k);
-    return stack;
+    int k = (st.size()+1)/2;
+    if(!st.empty()){   
+        Delete(st,k);
+    }
+    stack<int> temp;
+    while (!st.empty()) {
+        temp.push(st.top());
+        st.pop();
+    }
+    while (!temp.empty()) {
+        cout << temp.top() << " ";
+        temp.pop();
+    }
 }
-
-
-int main(){}

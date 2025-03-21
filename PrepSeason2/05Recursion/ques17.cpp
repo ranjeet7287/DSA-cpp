@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
 public:
 
     void Solve(vector<int> arr,int k,int index,int &ans){

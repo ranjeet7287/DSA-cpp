@@ -5,7 +5,7 @@ using namespace std;
 
 void Insert(vector<int> &arr,int x){
     int n = arr.size();
-    if(n==0 || arr[n-1]<=x){
+    if(n == 0 || arr[n-1]<=x){
         arr.push_back(x);
         return;
     }
@@ -15,22 +15,27 @@ void Insert(vector<int> &arr,int x){
     arr.push_back(val);
 }
 
-void Sort(vector<int> &arr){
-    int n = arr.size();
-    if(n==1){
+void Sort(vector<int> &arr,int n){
+    if(n<=1){
         return;
     }
-    int temp = arr[n-1];
+    int x = arr.at(n-1);
     arr.pop_back();
-    Sort(arr);
-    Insert(arr,temp);
+    Sort(arr,arr.size());
+    Insert(arr,x);
 }
 
-
 int main(){
-    vector<int> a={0,1,5,2,8};
-    Sort(a);
-    for(int i=0;i<5;i++){
-        cout<<a[i]<<" ";
+    int n;
+    cin>>n;
+    vector<int> arr;
+    for(int i=0;i<n;i++){
+        int val;
+        cin>>val;
+        arr.push_back(val);
+    }
+    Sort(arr,arr.size());
+    for(int i : arr){
+        cout<<i<<" ";
     }
 }

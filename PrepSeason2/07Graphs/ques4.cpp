@@ -5,7 +5,7 @@ using namespace std;
 
 bool isCycleBFS(vector<vector<int>>& adj,int u,vector<bool> visited){
     
-    queue<int,int> que;
+    queue<pair<int,int>> que;
     que.push({u,-1});
 
     visited[u] = true;

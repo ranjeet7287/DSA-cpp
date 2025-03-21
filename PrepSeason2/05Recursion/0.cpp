@@ -9,46 +9,57 @@
 // 7.reverse a stack 👍 👍 👍
 
 // Level 1
-// 0.Kth Symbol Grammer 👍 👍
-// 1.Tower of hanoi 👍 👍
+// 0.Kth Symbol Grammer 👍 👍 👍
+// 1.Tower of hanoi 👍 👍 👍
 
 // Level 2
-// Print Subsets || PowerSubsets || Print all Subsequences 👍 👍
-// Permutation with Spaces            ABC -> A_B_C , A_BC , AB_C ,ABC 👍👍
-// Permutation with Case Change       ab  -> ab , aB, Ab, AB 👍 👍
-// Letter Case Permutation 👍 👍
+// Print Subsets || PowerSubsets || Print all Subsequences 👍 👍 👍
+// Permutation with Spaces            ABC -> A_B_C , A_BC , AB_C ,ABC 👍👍 👍
+// Permutation with Case Change       ab  -> ab , aB, Ab, AB 👍 👍 👍
+// Letter Case Permutation 👍 👍 👍 
 
 
 // Level 3
-// Generate all Balanced Parentheses  👍 👍
-// Print N-digit binary numbers having more 1’s than 0’s for any prefix 👍
+// Generate all Balanced Parentheses  👍 👍 👍
+// Print N-digit binary numbers having more 1’s than 0’s for any prefix 👍 👍
 // Joesph Problem 👍
-
 
 #include<bits/stdc++.h>
 using namespace std;
 
-void Slove(string input,string output){
+
+void Solve(vector<int> &arr,int k,int index,int ans){
     
-    if(input.empty()){
-        cout<<output<" ";
-        return; 
+    int n = arr.size();
+
+    // Base case
+    if(arr.size()==1){
+        ans = arr[0];
+        return;
     }
 
-    string op1 = output;
-    string op2 = output;
+    // circular array
+    index = (index + k) % n;
+    arr.erase(arr.begin()+index);
+    Solve(arr,k,index,ans);
 
-    op1.push_back(tolower(input.at(0)));
-    op2.push_back(toupper(input.at(0)));
-
-    input.erase(input.begin()+0);
-
-    Slove(input,op1);
-    Slove(input,op2);
-    return;
-    
 }
 
+int findWinner(int n,int k){
+    vector<int> arr;
+    for(int i=0;i<n;i++){
+        arr.push_back(i+1);
+    }
+    k--;
+    int index = 0;
+    int ans   = -1;
+    Solve(arr,k,index,ans);
+    return ans;
+}
+
+
 int main(){
+
+
 
 }

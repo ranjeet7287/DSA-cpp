@@ -16,7 +16,7 @@ void BFS(unordered_map<int,vector<int>> &adj,int &u,vector<bool> &visited,vector
         int u = que.front();
         que.pop();
         for(int &v:adj[u]){
-            if(!visited[u]){
+            if(!visited[v]){
                 que.push(v);
                 visited[v] = true;
                 result.push_back(v);
